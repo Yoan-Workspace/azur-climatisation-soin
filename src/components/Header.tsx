@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import imageLogo from "/src/assets/LogoNGClim.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -12,6 +14,26 @@ const Header = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
+  };
+
+  const handleContactClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+
+    // Si on est déjà sur la page d'accueil
+    if (location.pathname === '/') {
+      // Scroll direct vers le formulaire
+      scrollToSection(id);
+    } else {
+      // Sinon, navigue vers l'accueil puis scroll
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+    setIsMenuOpen(false)
   };
 
   return (
@@ -29,13 +51,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-16">
             <button
-              onClick={() => scrollToSection("services")}
+              onClick={(e) => handleContactClick(e, "services")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Services
             </button>
             <button
-              onClick={() => scrollToSection("experience")}
+              onClick={(e) => handleContactClick(e, "experience")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Expérience
@@ -47,13 +69,13 @@ const Header = () => {
               Réalisations
             </Link>
             <button
-              onClick={() => scrollToSection("zone")}
+              onClick={(e) => handleContactClick(e, "zone")}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Zone d'intervention
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={(e) => handleContactClick(e, "contact")}  // ✅ Passe directement la fonction
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Contact
@@ -82,13 +104,13 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 flex flex-col gap-4 animate-fade-in">
             <button
-              onClick={() => scrollToSection("services")}
+              onClick={(e) => handleContactClick(e, "services")}
               className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Services
             </button>
             <button
-              onClick={() => scrollToSection("experience")}
+              onClick={(e) => handleContactClick(e, "experience")}
               className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Expérience
@@ -101,13 +123,13 @@ const Header = () => {
               Réalisations
             </Link>
             <button
-              onClick={() => scrollToSection("zone")}
+              onClick={(e) => handleContactClick(e, "zone")}
               className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Zone d'intervention
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={(e) => handleContactClick(e, "contact")}
               className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Contact
@@ -116,7 +138,7 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               07 61 28 71 31
             </a>
-            <Button variant="hero" onClick={() => scrollToSection("contact")} className="mt-2">
+            <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")} className="mt-2">
               Devis gratuit
             </Button>
           </nav>
