@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
-import heroImage from "@/assets/hero-climatisation.jpg";
+import heroImage from "@/assets/hero-climatisationA.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -22,8 +22,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
       </div>
 
-      <div className="container-narrow section-padding relative z-10">
-        <div className="max-w-2xl">
+      <div className="max-w-full mx-auto px-6 md:px-8 lg:px-12 section-padding relative z-10">
+        <div className="max-w-5xl">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Award className="w-4 h-4" />
             <span className="text-sm font-medium">Plus de 15 ans d'expérience</span>

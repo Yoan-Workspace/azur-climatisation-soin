@@ -5,6 +5,7 @@ import Experience from "@/components/Experience";
 import Zone from "@/components/Zone";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 const Index = () => {
   return (
@@ -13,6 +14,8 @@ const Index = () => {
       <main>
         <Hero />
         <Services />
+        {/* Google Reviews */}
+      <GoogleReviews />
         <Experience />
         <Zone />
         <ContactForm />
