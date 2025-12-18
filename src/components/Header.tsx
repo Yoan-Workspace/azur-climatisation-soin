@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import imageLogo from "/src/assets/LogoNGClim.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -16,17 +16,18 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container-narrow section-padding py-4">
+      <div className="container-narrow section-padding py-2">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">AC</span>
-            </div>
-            <span className="font-semibold text-lg text-foreground">ClimAzur</span>
+            <img
+              src={imageLogo}
+              alt="NG Clim Logo"
+              className="h-24 w-auto object-contain rounded-lg"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-16">
             <button
               onClick={() => scrollToSection("services")}
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -57,17 +58,15 @@ const Header = () => {
             >
               Contact
             </button>
+            <div className="hidden md:flex items-center gap-4">
+              <Button variant="hero" onClick={() => scrollToSection("contact")}>
+                Devis gratuit
+              </Button>
+            </div>
+
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <a href="tel:+33600000000" className="flex items-center gap-2 text-primary font-medium">
-              <Phone className="w-4 h-4" />
-              06 00 00 00 00
-            </a>
-            <Button variant="hero" onClick={() => scrollToSection("contact")}>
-              Devis gratuit
-            </Button>
-          </div>
+
 
           {/* Mobile Menu Button */}
           <button
@@ -113,9 +112,9 @@ const Header = () => {
             >
               Contact
             </button>
-            <a href="tel:+33600000000" className="flex items-center gap-2 text-primary font-medium py-2">
+            <a href="tel:+33761287131" className="flex items-center gap-2 text-primary font-medium py-2">
               <Phone className="w-4 h-4" />
-              06 00 00 00 00
+              07 61 28 71 31
             </a>
             <Button variant="hero" onClick={() => scrollToSection("contact")} className="mt-2">
               Devis gratuit

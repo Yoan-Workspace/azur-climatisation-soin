@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import imageLogo from "/src/assets/LogoNGClim.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,10 +10,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">AC</span>
-              </div>
-              <span className="font-semibold text-lg">ClimAzur</span>
+              <img
+              src={imageLogo}
+              alt="NG Clim Logo"
+              className="h-24 w-auto object-contain rounded-lg"
+            />
             </div>
             <p className="text-background/70">
               Expert en entretien et nettoyage de climatisations sur la Côte d'Azur depuis plus de 15 ans.
