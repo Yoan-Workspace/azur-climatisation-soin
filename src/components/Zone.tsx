@@ -21,7 +21,7 @@ const Zone = () => {
           </p>
         </div>
 
-        <div className="bg-card rounded-2xl p-8 shadow-card">
+        <div className="bg-card rounded-2xl p-4 sm:p-8 shadow-card">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
               <MapPin className="w-6 h-6 text-primary-foreground" />
