@@ -39,6 +39,12 @@ const Header = () => {
             >
               Expérience
             </button>
+            <Link
+              to="/realisations"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Réalisations
+            </Link>
             <button
               onClick={() => scrollToSection("zone")}
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -88,6 +94,13 @@ const Header = () => {
             >
               Expérience
             </button>
+            <Link
+              to="/realisations"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+            >
+              Réalisations
+            </Link>
             <button
               onClick={() => scrollToSection("zone")}
               className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
