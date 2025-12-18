@@ -38,7 +38,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container-narrow section-padding py-2">
+      <div className="container-narrow section-padding py-0 flex items-center justify-between h-20">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <img
@@ -62,12 +62,6 @@ const Header = () => {
             >
               Expérience
             </button>
-            <Link
-              to="/realisations"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Réalisations
-            </Link>
             <button
               onClick={(e) => handleContactClick(e, "zone")}
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -80,8 +74,14 @@ const Header = () => {
             >
               Contact
             </button>
+             <Link
+              to="/realisations"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Réalisations
+            </Link>
             <div className="hidden md:flex items-center gap-4">
-              <Button variant="hero" onClick={() => scrollToSection("contact")}>
+              <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")}>
                 Devis gratuit
               </Button>
             </div>
