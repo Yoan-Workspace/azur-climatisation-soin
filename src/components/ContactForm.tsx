@@ -53,7 +53,7 @@ const ContactForm = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card">
+            <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-4 sm:p-8 shadow-card">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
