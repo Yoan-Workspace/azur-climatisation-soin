@@ -74,11 +74,17 @@ const Header = () => {
             >
               Contact
             </button>
-             <Link
+            <Link
               to="/realisations"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Réalisations
+            </Link>
+            <Link
+              to="/tarifs"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Tarifs
             </Link>
             <div className="hidden md:flex items-center gap-4">
               <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")}>
