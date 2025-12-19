@@ -18,15 +18,15 @@ const MentionsLegales = () => {
               </h2>
               <p className="text-muted-foreground mb-4">
                 Le présent site est édité par :<br />
-                <strong>ClimAzur</strong><br />
-                [Votre adresse]<br />
-                [Code postal] [Ville]<br />
-                Téléphone : 06 00 00 00 00<br />
-                Email : contact@climazur.fr
+                <strong>NG Climatisation</strong><br />
+                 152 Chem. d'Altaïr,<br />
+                 06610 La Gaude<br />
+                Téléphone : 07 61 28 71 31<br />
+                Email : ngclim06@gmail.com
               </p>
               <p className="text-muted-foreground">
-                SIRET : [Numéro SIRET]<br />
-                Responsable de la publication : [Votre nom]
+                SIRET : 91825411100027<br />
+                Responsable de la publication : Nicolas GARABEDIAN
               </p>
             </section>
 
@@ -36,8 +36,10 @@ const MentionsLegales = () => {
               </h2>
               <p className="text-muted-foreground">
                 Ce site est hébergé par :<br />
-                [Nom de l'hébergeur]<br />
-                [Adresse de l'hébergeur]
+                Vercel<br />
+                <strong>Adresse: </strong>440 N Barranca Ave #4133,<br />
+                Covina, CA 91723, USA<br />
+                <strong>Contact: </strong> https://vercel.com/contact
               </p>
             </section>
 
@@ -82,7 +84,7 @@ const MentionsLegales = () => {
               </h2>
               <p className="text-muted-foreground">
                 Pour toute question concernant ces mentions légales, vous pouvez nous 
-                contacter à l'adresse : contact@climazur.fr
+                contacter à l'adresse : ngclim06@gmail.com
               </p>
             </section>
           </div>

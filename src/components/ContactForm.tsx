@@ -145,11 +145,11 @@ const ContactForm = () => {
                   </div>
                   <span>07 61 28 71 31</span>
                 </a>
-                <a href="mailto:contact@climazur.fr" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <a href="mailto:ngclim06@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
-                  <span>contact@climazur.fr</span>
+                  <span>ngclim06@gmail.com</span>
                 </a>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">

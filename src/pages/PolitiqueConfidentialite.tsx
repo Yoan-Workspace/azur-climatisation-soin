@@ -114,8 +114,8 @@ const PolitiqueConfidentialite = () => {
               <p className="text-muted-foreground">
                 Pour exercer vos droits ou pour toute question relative à cette politique 
                 de confidentialité, vous pouvez nous contacter :<br /><br />
-                <strong>Email</strong> : contact@climazur.fr<br />
-                <strong>Téléphone</strong> : 06 00 00 00 00<br /><br />
+                <strong>Email</strong> : ngclim06@gmail.com<br />
+                <strong>Téléphone</strong> : 07 61 28 71 31<br /><br />
                 Vous pouvez également introduire une réclamation auprès de la CNIL 
                 (Commission Nationale de l'Informatique et des Libertés) si vous estimez 
                 que vos droits ne sont pas respectés.
