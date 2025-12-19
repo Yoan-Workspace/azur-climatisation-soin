@@ -9,6 +9,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import Realisations from "./pages/Realisations";
 import Tarifs from "@/pages/Tarifs";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop /> {}
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tarifs" element={<Tarifs />} />
