@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -20,27 +21,55 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Paramètres pour le template EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone || "Non renseigné",
+        client_type: formData.type === "particulier" ? "Particulier" : "Professionnel",
+        message: formData.message,
+      };
 
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-    });
+      // Envoi de l'email via EmailJS
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      type: "particulier",
-      message: "",
-    });
-    setIsSubmitting(false);
+      console.log('Email envoyé avec succès!', response.status, response.text);
+
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous répondrons dans les plus brefs délais.",
+      });
+
+      // Réinitialiser le formulaire
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        type: "particulier",
+        message: "",
+      });
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="section-padding">
-      <div className="container-narrow">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Demandez votre devis gratuit
