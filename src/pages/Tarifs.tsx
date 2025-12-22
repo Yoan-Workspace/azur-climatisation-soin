@@ -5,13 +5,14 @@ import { Badge, Euro, Clock, Check, Loader2, Star } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
 import { Button } from "@/components/ui/button";
 import * as LucideIcons from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 interface Service {
   _id: string;
   title: string;
   slug: { current: string };
   description: string;
+  fullDescription?: any[];
   price: number;
   priceLabel?: string;
   priceUnit?: string;
@@ -32,25 +33,24 @@ const categoryLabels: Record<string, string> = {
   installation: "Installation",
 };
 
-
-
 const Tarifs = () => {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-    const navigate = useNavigate();
-    const handleContactClick = (e: React.MouseEvent, id: string) => {
-    
+  const navigate = useNavigate();
+
+  const handleContactClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
-     navigate('/');
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
+    navigate('/');
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 100);
   };
+
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -59,6 +59,7 @@ const Tarifs = () => {
           title,
           slug,
           description,
+          fullDescription,
           price,
           priceLabel,
           priceUnit,
@@ -254,13 +255,23 @@ const Tarifs = () => {
                         </div>
                       </div>
 
-                      <Button 
-                        variant="hero" 
-                        className="w-full"
-                        onClick={(e) => handleContactClick(e, "contact")}
-                      >
-                        Demander un devis
-                      </Button>
+                      <div className="flex flex-col gap-2">
+                        <Button 
+                          variant="hero" 
+                          className="w-full"
+                          onClick={(e) => handleContactClick(e, "contact")}
+                        >
+                          Demander un devis
+                        </Button>
+                        <Link to={`/services/${service.slug.current}`} className="w-full">
+                          <Button 
+                            variant="outline" 
+                            className="w-full"
+                          >
+                            En savoir plus
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

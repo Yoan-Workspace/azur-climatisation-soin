@@ -9,6 +9,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import Realisations from "./pages/Realisations";
 import Tarifs from "@/pages/Tarifs";
 import NotFound from "./pages/NotFound";
+import ServiceDetail from "@/pages/ServiceDetail";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/tarifs" element={<Tarifs />} />
           <Route path="/realisations" element={<Realisations />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
           <Route path="*" element={<NotFound />} />

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import imageLogo from "/src/assets/LogoNGClim.png";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -33,14 +34,15 @@ const Header = () => {
         });
       }, 100);
     }
-    setIsMenuOpen(false)
+    setIsMenuOpen(false);
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container-narrow section-padding py-0 flex items-center justify-between h-20">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
             <img
               src={imageLogo}
               alt="NG Clim Logo"
@@ -49,56 +51,53 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-16">
+          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
             <button
               onClick={(e) => handleContactClick(e, "services")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
             >
               Services
             </button>
             <button
               onClick={(e) => handleContactClick(e, "experience")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
             >
               Expérience
             </button>
             <button
               onClick={(e) => handleContactClick(e, "zone")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
             >
               Zone d'intervention
             </button>
-            <button
-              onClick={(e) => handleContactClick(e, "contact")}  // ✅ Passe directement la fonction
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Contact
-            </button>
             <Link
               to="/realisations"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
             >
               Réalisations
             </Link>
             <Link
               to="/tarifs"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
             >
               Tarifs
             </Link>
-            <div className="hidden md:flex items-center gap-4">
-              <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")}>
-                Devis gratuit
-              </Button>
-            </div>
-
+            <button
+              onClick={(e) => handleContactClick(e, "contact")}
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+            >
+              Contact
+            </button>
+            <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")}>
+              Devis gratuit
+            </Button>
           </nav>
 
-
-
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Aligné à droite */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 ml-auto"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Menu"
           >
@@ -106,47 +105,69 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Menu déroulant sous le header */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 flex flex-col gap-4 animate-fade-in">
-            <button
-              onClick={(e) => handleContactClick(e, "services")}
-              className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Services
-            </button>
-            <button
-              onClick={(e) => handleContactClick(e, "experience")}
-              className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Expérience
-            </button>
-            <Link
-              to="/realisations"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Réalisations
-            </Link>
-            <button
-              onClick={(e) => handleContactClick(e, "zone")}
-              className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Zone d'intervention
-            </button>
-            <button
-              onClick={(e) => handleContactClick(e, "contact")}
-              className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-            >
-              Contact
-            </button>
-            <a href="tel:+33761287131" className="flex items-center gap-2 text-primary font-medium py-2">
-              <Phone className="w-4 h-4" />
-              07 61 28 71 31
-            </a>
-            <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")} className="mt-2">
-              Devis gratuit
-            </Button>
+          <nav className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-fade-in">
+            <div className="px-6 py-4 flex flex-col gap-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
+              <button
+                onClick={(e) => handleContactClick(e, "services")}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                Services
+              </button>
+              <button
+                onClick={(e) => handleContactClick(e, "experience")}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                Expérience
+              </button>
+              <button
+                onClick={(e) => handleContactClick(e, "zone")}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                Zone d'intervention
+              </button>
+              <Link
+                to="/realisations"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                Réalisations
+              </Link>
+              <Link
+                to="/tarifs"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                Tarifs
+              </Link>
+              <button
+                onClick={(e) => handleContactClick(e, "contact")}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                Contact
+              </button>
+              <a 
+                href="tel:+33761287131" 
+                className="flex items-center gap-2 text-primary font-medium py-2"
+              >
+                <Phone className="w-4 h-4" />
+                07 61 28 71 31
+              </a>
+              <Button 
+                variant="hero" 
+                onClick={(e) => handleContactClick(e, "contact")} 
+                className="mt-2 w-full"
+              >
+                Devis gratuit
+              </Button>
+            </div>
           </nav>
         )}
       </div>
