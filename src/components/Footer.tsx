@@ -27,7 +27,6 @@ const Footer = () => {
               <li>Nettoyage complet</li>
               <li>Entretien préventif</li>
               <li>Désinfection</li>
-              <li>Vérification fluide</li>
             </ul>
           </div>
 
