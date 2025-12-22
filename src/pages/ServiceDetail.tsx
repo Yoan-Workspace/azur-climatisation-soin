@@ -273,14 +273,6 @@ const ServiceDetail = () => {
             </div>
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
               <h3 className="font-semibold text-foreground mb-2">
-                Déplacement inclus
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Côte d'Azur
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
-              <h3 className="font-semibold text-foreground mb-2">
                 Intervention rapide
               </h3>
               <p className="text-sm text-muted-foreground">
