@@ -1,14 +1,10 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# robots.txt
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://ng-climatisation.fr/sitemap.xml
+
+# Désindexer certaines pages si nécessaire (optionnel)
+# Disallow: /admin
+# Disallow: /api
