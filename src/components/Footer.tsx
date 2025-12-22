@@ -17,7 +17,7 @@ const Footer = () => {
             />
             </div>
             <p className="text-background/70">
-              Expert en entretien et nettoyage de climatisations sur la Côte d'Azur depuis plus de 15 ans.
+              Expert en entretien et nettoyage de climatisations sur la Côte d'Azur depuis plus de 10 ans.
             </p>
           </div>
 

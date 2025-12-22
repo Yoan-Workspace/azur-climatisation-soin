@@ -287,12 +287,7 @@ const Tarifs = () => {
                 Obtenez une estimation personnalisée sans engagement
               </p>
             </div>
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
-              <h3 className="font-semibold text-foreground mb-2">Déplacement inclus</h3>
-              <p className="text-sm text-muted-foreground">
-                Sur toute la Côte d'Azur sans frais supplémentaires
-              </p>
-            </div>
+
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
               <h3 className="font-semibold text-foreground mb-2">Paiement flexible</h3>
               <p className="text-sm text-muted-foreground">

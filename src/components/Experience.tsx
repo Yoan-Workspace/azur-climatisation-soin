@@ -19,7 +19,7 @@ const Experience = () => {
               Pourquoi nous faire confiance ?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Depuis plus de 15 ans, je mets mon expertise au service des habitants 
+              Depuis plus de 10 ans, je mets mon expertise au service des habitants 
               et entreprises de la Côte d'Azur. Mon engagement : un travail soigné, 
               une transparence totale et votre satisfaction garantie.
             </p>
@@ -41,11 +41,11 @@ const Experience = () => {
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 lg:p-12">
               <div className="grid grid-cols-2 gap-3 sm:gap-6">
                 <div className="bg-card rounded-xl p-4 sm:p-6 shadow-card text-center">
-                  <p className="text-3xl sm:text-4xl font-bold text-gradient mb-1 sm:mb-2">15+</p>
+                  <p className="text-3xl sm:text-4xl font-bold text-gradient mb-1 sm:mb-2">10+</p>
                   <p className="text-xs sm:text-sm text-muted-foreground">Années d'expérience</p>
                 </div>
                 <div className="bg-card rounded-xl p-4 sm:p-6 shadow-card text-center">
-                  <p className="text-3xl sm:text-4xl font-bold text-gradient mb-1 sm:mb-2">500+</p>
+                  <p className="text-3xl sm:text-4xl font-bold text-gradient mb-1 sm:mb-2">100+</p>
                   <p className="text-xs sm:text-sm text-muted-foreground">Clients satisfaits</p>
                 </div>
                 <div className="bg-card rounded-xl p-4 sm:p-6 shadow-card text-center">

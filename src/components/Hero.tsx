@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="max-w-5xl">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Award className="w-4 h-4" />
-            <span className="text-sm font-medium">Plus de 15 ans d'expérience</span>
+            <span className="text-sm font-medium">Plus de 10 ans d'expérience</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
@@ -73,7 +73,7 @@ const Hero = () => {
                 <Award className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="font-semibold text-foreground">15+ ans</p>
+                <p className="font-semibold text-foreground">10+ ans</p>
                 <p className="text-sm text-muted-foreground">D'expérience</p>
               </div>
             </div>

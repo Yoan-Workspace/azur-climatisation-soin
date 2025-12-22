@@ -26,11 +26,6 @@ const services = [
     title: "Professionnels",
     description: "Contrats de maintenance pour commerces, bureaux et entreprises.",
   },
-  {
-    icon: ThermometerSun,
-    title: "Vérification fluide",
-    description: "Contrôle et recharge du fluide frigorigène si nécessaire.",
-  },
 ];
 
 const Services = () => {
