@@ -1,7 +1,7 @@
 import { CheckCircle2 } from "lucide-react";
 
 const benefits = [
-  "Plus de 15 ans d'expérience sur la Côte d'Azur",
+  "Plus de 10 ans d'expérience sur la Côte d'Azur",
   "Intervention chez les particuliers et professionnels",
   "Technicien certifié et équipement professionnel",
   "Devis gratuit et transparent",

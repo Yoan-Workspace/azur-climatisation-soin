@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-background/20 pt-8 text-center text-background/60 text-sm">
-          <p>© {currentYear} ClimAzur - Tous droits réservés</p>
+          <p>© {currentYear} NG Climatisation - Tous droits réservés</p>
         </div>
       </div>
     </footer>
