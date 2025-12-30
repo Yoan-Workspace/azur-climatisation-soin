@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 
 const cities = [
   "Nice", "Cannes", "Antibes", "Grasse", "Cagnes-sur-Mer", "Mandelieu",
-  "Mougins", "Valbonne", "Sophia Antipolis", "Saint-Laurent-du-Var",
+  "Mougins", "Valbonne", "Sophia Antipolis", "Saint-Laurent-du-Var", "Le Cannet", "La Gaude",
   "Villeneuve-Loubet", "Biot", "Vence", "Saint-Paul-de-Vence", "Menton",
   "Monaco", "Beaulieu-sur-Mer", "Villefranche-sur-Mer"
 ];
