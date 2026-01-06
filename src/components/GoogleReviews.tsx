@@ -30,21 +30,44 @@ const reviews = [
 ];
 
 // Note moyenne et nombre total d'avis
-const totalReviews = 11; // À adapter selon tes vrais chiffres
-const averageRating = 5; // À adapter
+const totalReviews = 11; 
+const averageRating = 5;
 
 export const GoogleReviews = () => {
-  // Remplace par ton vrai lien Google Business Profile
+ 
   const googleBusinessUrl = "https://www.google.com/search?newwindow=1&sca_esv=0b1aadbb54d51ce1&sxsrf=AE3TifN62nA5pxzanYtHyvbJ1lupR6orxg:1766060570395&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E8ASj19jS3JlbljnrIVeDtm5p6SBDF7W7C-W_92UjvypsRWvYVrLA83CE1AVzqqLlZC5KfQWhc0FaR2Sl52-shkHkq_8&q=NG+Clim+Avis&sa=X&ved=2ahUKEwjP68ynkMeRAxXNITQIHb4kBUwQ0bkNegQIPRAD&biw=1680&bih=835&dpr=2";
+
+  // Données structurées pour Google (Schema.org)
+  // Cela permet à Google de comprendre que ton site a une note de 5/5
+  const jsonLd = {
+    "@context": "https://schema.org/",
+    "@type": "LocalBusiness",
+    "name": "NG Clim",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "11"
+    },
+    "areaServed": "Côte d'Azur",
+    "serviceType": "Entretien de climatisation"
+  };
 
   return (
     <section className="py-20 bg-secondary/30">
+
+      {/* Ajout du script JSON-LD invisible pour l'utilisateur mais lu par Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="container mx-auto px-4">
         {/* En-tête avec statistiques */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif mb-4 text-foreground">
-            Avis Clients
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            Avis Clients NG Clim
           </h2>
+          <p className="text-muted-foreground mb-6">Ils nous font confiance pour l'entretien de leur clim à Nice, Antibes, Cagnes-sur-mer et La Gaude.</p>
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (

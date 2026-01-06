@@ -3,29 +3,34 @@ import { Wind, Wrench, Sparkles, Building2, Home, ThermometerSun } from "lucide-
 const services = [
   {
     icon: Sparkles,
-    title: "Nettoyage complet",
-    description: "Nettoyage en profondeur des filtres, évaporateurs et condenseurs pour un air purifié.",
-  },
-  {
-    icon: Wrench,
-    title: "Entretien préventif",
-    description: "Maintenance régulière pour optimiser les performances et prolonger la durée de vie.",
+    title: "Nettoyage & Dégraissage", // Plus précis que "Nettoyage complet"
+    description: "Nettoyage haute pression des filtres, turbines et bacs à condensats. Élimination des mauvaises odeurs.",
   },
   {
     icon: Wind,
-    title: "Désinfection",
-    description: "Traitement antibactérien et antifongique pour une qualité d'air optimale.",
+    title: "Désinfection Bactéricide / Fongicide", // Mot clé puissant (santé)
+    description: "Traitement anti-légionellose, antibactérien et fongicide pour un air sain, sans allergènes.",
+  },
+  {
+    icon: Wrench,
+    title: "Maintenance Préventive",
+    description: "Vérification du circuit, serrage des connexions et contrôle du fonctionnement.",
   },
   {
     icon: Home,
-    title: "Particuliers",
-    description: "Interventions à domicile pour les climatisations split et réversibles.",
+    title: "Clim Maison & Appartement", // "Particuliers" est trop vague pour le SEO
+    description: "Intervention rapide chez les particuliers sur tous types de splits, consoles et gainables.",
   },
   {
     icon: Building2,
-    title: "Professionnels",
-    description: "Contrats de maintenance pour commerces, bureaux et entreprises.",
+    title: "Clim Bureaux & Commerces", // Cible le B2B
+    description: "Contrats d'entretien annuels pour professionnels. Gestion de parcs multi-splits.",
   },
+  {
+    icon: ThermometerSun, 
+    title: "Performance Énergétique",
+    description: "Optimisation du rendement de votre appareil pour réduire votre consommation d'électricité.",
+  }
 ];
 
 const Services = () => {
@@ -33,12 +38,13 @@ const Services = () => {
     <section id="services" className="section-padding bg-secondary/30">
       <div className="container-narrow">
         <div className="text-center mb-12">
+          {/* OPTIMISATION SEO : Le H2 décrit exactement l'activité */}
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Nos Services
+            Nos prestations d'entretien de climatisation
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Un service complet d'entretien et de nettoyage pour garantir le bon 
-            fonctionnement de votre climatisation et la qualité de votre air intérieur.
+            Une expertise complète pour prolonger la durée de vie de vos appareils 
+            et garantir un air pur sur la Côte d'Azur.
           </p>
         </div>
 
@@ -52,10 +58,11 @@ const Services = () => {
               <div className="w-14 h-14 rounded-lg gradient-primary flex items-center justify-center mb-4">
                 <service.icon className="w-7 h-7 text-primary-foreground" />
               </div>
+              {/* Le H3 est important pour la structure sémantique */}
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {service.description}
               </p>
             </div>

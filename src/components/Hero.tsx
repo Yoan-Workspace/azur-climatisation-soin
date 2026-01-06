@@ -16,7 +16,8 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Technicien entretenant une climatisation"
+          // OPTIMISATION 1 : Alt tag plus précis avec Marque + Ville principale
+          alt="Split air climatisation installation à La Gaude par NG Clim"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
@@ -26,17 +27,24 @@ const Hero = () => {
         <div className="max-w-5xl">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Award className="w-4 h-4" />
+            {/* C'est très bien, ça rassure (Trust signal) */}
             <span className="text-sm font-medium">Plus de 10 ans d'expérience</span>
           </div>
 
+          {/* OPTIMISATION 2 : Le H1 inclut maintenant la zone géographique */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             Entretien & Nettoyage de{" "}
             <span className="text-gradient">Climatisation</span>
+            {/* Ajout stratégique pour le SEO Local (tu peux mettre <br /> sur mobile si besoin) */}
+            <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 text-foreground">
+             sur la Côte d'Azur
+            </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Spécialiste de l'entretien et du nettoyage de climatisations pour particuliers 
-            et professionnels sur toute la Côte d'Azur. Un air sain, une climatisation performante.
+            {/* Le paragraphe soutient le H1 avec des mots secondaires (particuliers, pro, air sain) */}
+            Spécialiste de l'entretien, de la désinfection et du dépannage de climatisations pour particuliers 
+            et professionnels dans le 06 (Nice, Cagnes-sur-mer, Antibes, La Gaude, Saint-Laurent-du-var, Vence ...). Retrouvez un air sain et une performance optimale.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in" style={{ animationDelay: "0.3s" }}>
@@ -48,7 +56,6 @@ const Hero = () => {
               Nous contacter
             </Button>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
