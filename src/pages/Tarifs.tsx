@@ -115,8 +115,8 @@ const Tarifs = () => {
               Services & <span className="text-gradient">Tarification</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Des prestations de qualité à des tarifs transparents. 
-              Tous nos prix incluent le déplacement sur la Côte d'Azur.
+              Dès 79€ sur La Gaude, des prestations de qualité à des tarifs transparents. 
+              Sur les Alpes-Maritimes, La Gaude, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var, Vence et leurs alentours.
             </p>
           </div>
 

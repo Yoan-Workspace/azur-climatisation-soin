@@ -37,7 +37,7 @@ const Hero = () => {
             <span className="text-gradient">Climatisation</span>
             {/* Ajout stratégique pour le SEO Local (tu peux mettre <br /> sur mobile si besoin) */}
             <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 text-foreground">
-             dans les Alpes Maritimes
+             dans les Alpes Maritimes dès 79€
             </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
