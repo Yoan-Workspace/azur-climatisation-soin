@@ -37,14 +37,27 @@ const Hero = () => {
             <span className="text-gradient">Climatisation</span>
             {/* Ajout stratégique pour le SEO Local (tu peux mettre <br /> sur mobile si besoin) */}
             <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 text-foreground">
-             sur la Côte d'Azur
+             dans les Alpes Maritimes
             </span>
           </h1>
-
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
+              <span className="md:text-xl lg:text-3xl mt-2 text-foreground">
+              À partir de 79€ !
+              </span>
+          </p>
+          <p className="text-lg md:text-xl text-muted-foreground mb-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             {/* Le paragraphe soutient le H1 avec des mots secondaires (particuliers, pro, air sain) */}
-            Spécialiste de l'entretien, de la désinfection et du dépannage de climatisations pour particuliers 
-            et professionnels dans le 06 (Nice, Cagnes-sur-mer, Antibes, La Gaude, Saint-Laurent-du-var, Vence ...). Retrouvez un air sain et une performance optimale.
+            Entretien et nettoyage de climatisation dans les Alpes-Maritimes (06). </p>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
+            Confiez la maintenance de votre clim à un expert local. 
+            </p>
+            
+               <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
+
+              Nous intervenons rapidement pour l'entretien et la désinfection de vos appareils à Nice, Antibes, Cagnes-sur-Mer, La Gaude, Saint-Laurent-du-Var, Vence et leurs alentours.
+               </p>
+              <p className="text-lg md:text-xl text-muted-foreground mb-5 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
+              Respirez un air sain : Expert maintenance climatisation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in" style={{ animationDelay: "0.3s" }}>
