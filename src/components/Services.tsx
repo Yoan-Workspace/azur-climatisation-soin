@@ -12,13 +12,8 @@ const services = [
     description: "Traitement anti-légionellose, antibactérien et fongicide pour un air sain, sans allergènes.",
   },
   {
-    icon: Wrench,
-    title: "Maintenance Préventive",
-    description: "Vérification du circuit, serrage des connexions et contrôle du fonctionnement.",
-  },
-  {
     icon: Home,
-    title: "Clim Maison & Appartement", // "Particuliers" est trop vague pour le SEO
+    title: "Clim Maison & Appartement",
     description: "Intervention rapide chez les particuliers sur tous types de splits, consoles et gainables.",
   },
   {
@@ -40,7 +35,7 @@ const Services = () => {
         <div className="text-center mb-12">
           {/* OPTIMISATION SEO : Le H2 décrit exactement l'activité */}
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Nos prestations d'entretien de climatisation
+            Nos prestations de nettoyage de climatisation sur Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Une expertise complète pour prolonger la durée de vie de vos appareils 

@@ -67,7 +67,7 @@ const Footer = () => {
             />
             </div>
             <p className="text-background/70">
-              Expert en entretien et nettoyage de climatisations sur la Côte d'Azur depuis plus de 10 ans.
+              Expert en nettoyage de climatisations sur la Côte d'Azur depuis plus de 10 ans.
             </p>
           </div>
 
@@ -75,8 +75,8 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-background/70">
               <li>Nettoyage complet</li>
-              <li>Entretien préventif</li>
               <li>Désinfection</li>
+              <li>Intervention sur Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude</li>
             </ul>
           </div>
 

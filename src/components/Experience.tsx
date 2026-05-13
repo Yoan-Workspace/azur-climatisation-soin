@@ -3,9 +3,9 @@ import { CheckCircle2 } from "lucide-react";
 const benefits = [
   "Expertise de 10 ans en génie climatique sur la Côte d'Azur", // Plus technique
   "Spécialiste climatisation particuliers et locaux professionnels",
-  "Technicien certifié manipulant les fluides frigorigènes", // Mot clé puissant
+  "Technicien certifié", // Mot clé puissant
   "Devis gratuit, transparent et sans frais cachés",
-  "Contrats d'entretien annuel et dépannage d'urgence", // Ajout de services
+  "Contrats d'entretien de nettoyage annuel", // Ajout de services
   "Utilisation de produits de désinfection biodégradables", // Écologie/Santé
 ];
 
@@ -20,7 +20,8 @@ const Experience = () => {
               Pourquoi choisir NG Clim pour votre climatisation ?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Depuis plus d'une décennie, j'accompagne les résidents des Alpes-Maritimes 
+              Depuis plus d'une décennie, j'accompagne les résidents des Alpes-Maritimes sur
+              Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude, 
               dans l'optimisation de leur confort thermique. Mon engagement : une 
               climatisation saine, performante et durable.
             </p>

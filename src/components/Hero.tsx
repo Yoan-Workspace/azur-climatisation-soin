@@ -16,8 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          // OPTIMISATION 1 : Alt tag plus précis avec Marque + Ville principale
-          alt="Split air climatisation installation à La Gaude par NG Clim"
+          alt="Nettoyage et désinfection de climatisation à Nice et Antibes par NG Clim"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
@@ -25,42 +24,46 @@ const Hero = () => {
 
       <div className="max-w-full mx-auto px-6 md:px-8 lg:px-12 section-padding relative z-10">
         <div className="max-w-5xl">
+
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Award className="w-4 h-4" />
-            {/* C'est très bien, ça rassure (Trust signal) */}
-            <span className="text-sm font-medium">Plus de 10 ans d'expérience</span>
+            <span className="text-sm font-medium">
+              Spécialiste nettoyage climatisation — Alpes-Maritimes (06)
+            </span>
           </div>
 
-          {/* OPTIMISATION 2 : Le H1 inclut maintenant la zone géographique */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            Entretien & Nettoyage de{" "}
+          {/* H1 — mot-clé principal + zone + prix */}
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Nettoyage de{" "}
             <span className="text-gradient">Climatisation</span>
-            {/* Ajout stratégique pour le SEO Local (tu peux mettre <br /> sur mobile si besoin) */}
-            <span className="block text-3xl md:text-5xl lg:text-6xl mt-2 text-foreground">
-             dans les Alpes Maritimes dès 79€
+            <span className="block text-3xl md:text-4xl lg:text-5xl mt-3 text-foreground">
+              à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude — Promo d'été dès 79€
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
-              <span className="md:text-xl lg:text-3xl mt-2 text-foreground">
-              À partir de 79€ !
-              </span>
-          </p>
-          <p className="text-lg md:text-xl text-muted-foreground mb-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            {/* Le paragraphe soutient le H1 avec des mots secondaires (particuliers, pro, air sain) */}
-            Entretien et nettoyage de climatisation dans les Alpes-Maritimes (06). </p>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
-            Confiez la maintenance de votre clim à un expert local. 
-            </p>
-            
-               <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
 
-              Nous intervenons rapidement pour l'entretien et la désinfection de vos appareils à Nice, Antibes, Cagnes-sur-Mer, La Gaude, Saint-Laurent-du-Var, Vence et leurs alentours.
-               </p>
-              <p className="text-lg md:text-xl text-muted-foreground mb-5 animate-fade-in" style={{ animationDelay: "0.2s" }}> 
-              Respirez un air sain : Expert maintenance climatisation.
+          {/* Paragraphe unique, dense, sémantiquement cohérent */}
+          <p
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl animate-fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
+            Mauvaises odeurs, perte de puissance, filtres encrassés ?{" "}
+            <strong className="text-foreground font-semibold">NG Clim</strong> intervient pour le{" "}
+            <strong className="text-foreground font-semibold">
+              nettoyage complet et la désinfection de votre climatisation
+            </strong>{" "}
+            dans les Alpes-Maritimes. Particuliers et professionnels, retrouvez
+            un air sain avec un expert local de confiance.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          {/* CTA */}
+          <div
+            className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in"
+            style={{ animationDelay: "0.3s" }}
+          >
             <Button variant="hero" size="xl" onClick={scrollToContact}>
               Demander un devis gratuit
               <ArrowRight className="w-5 h-5" />
@@ -69,7 +72,12 @@ const Hero = () => {
               Nous contacter
             </Button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+
+          {/* Trust signals */}
+          <div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-in"
+            style={{ animationDelay: "0.4s" }}
+          >
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Shield className="w-6 h-6 text-primary" />
@@ -98,6 +106,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
