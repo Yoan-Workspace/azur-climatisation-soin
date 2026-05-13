@@ -21,7 +21,7 @@ const MentionsLegales = () => {
                 <strong>NG Climatisation</strong><br />
                  152 Chem. d'Altaïr,<br />
                  06610 La Gaude<br />
-                Téléphone : 07 61 28 71 31<br />
+                Téléphone : 06 60 62 05 74<br />
                 Email : ngclim06@gmail.com
               </p>
               <p className="text-muted-foreground">

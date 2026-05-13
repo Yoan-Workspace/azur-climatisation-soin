@@ -154,11 +154,11 @@ const Header = () => {
                 Contact
               </button>
               <a 
-                href="tel:+33761287131" 
+                href="tel:+33660620574" 
                 className="flex items-center gap-2 text-primary font-medium py-2"
               >
                 <Phone className="w-4 h-4" />
-                07 61 28 71 31
+                06 60 62 05 74
               </a>
               <Button 
                 variant="hero" 
