@@ -1,12 +1,12 @@
 import { CheckCircle2 } from "lucide-react";
 
 const benefits = [
-  "Expertise de 10 ans en génie climatique sur la Côte d'Azur", // Plus technique
-  "Spécialiste climatisation particuliers et locaux professionnels",
-  "Technicien certifié", // Mot clé puissant
+  "Plus de 10 ans d'expérience autour de la climatisation sur la Côte d'Azur",
+  "Spécialiste du nettoyage de climatisation pour particuliers et professionnels",
+  "Prestation exclusivement dédiée au nettoyage et à la désinfection",
   "Devis gratuit, transparent et sans frais cachés",
-  "Contrats d'entretien de nettoyage annuel", // Ajout de services
-  "Utilisation de produits de désinfection biodégradables", // Écologie/Santé
+  "Nettoyage ponctuel ou suivi annuel selon vos besoins",
+  "Utilisation de produits de désinfection adaptés",
 ];
 
 const Experience = () => {
@@ -17,13 +17,13 @@ const Experience = () => {
           <div>
             {/* OPTIMISATION SEO : Titre incluant l'activité */}
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Pourquoi choisir NG Clim pour votre climatisation ?
+              Pourquoi choisir NG Clim pour nettoyer votre climatisation ?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               Depuis plus d'une décennie, j'accompagne les résidents des Alpes-Maritimes sur
               Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude, 
-              dans l'optimisation de leur confort thermique. Mon engagement : une 
-              climatisation saine, performante et durable.
+              pour le nettoyage et la désinfection de leurs climatisations. Mon engagement :
+              un appareil plus propre, un air plus sain et une prestation claire, centrée sur l'hygiène.
             </p>
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
@@ -51,11 +51,11 @@ const Experience = () => {
                 <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-sm border border-border/50 text-center">
                   <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">500+</p> 
                   {/* Petit conseil : augmente un peu si c'est vrai, 100+ paraît peu pour 10 ans */}
-                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Interventions</p>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nettoyages</p>
                 </div>
                 <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-sm border border-border/50 text-center">
                   <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">100%</p>
-                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Disponibilité</p>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nettoyage</p>
                 </div>
                 <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-sm border border-border/50 text-center">
                   <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">06</p>

@@ -6,6 +6,7 @@ import { client, urlFor } from "@/lib/sanity";
 import { Button } from "@/components/ui/button";
 import * as LucideIcons from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
+import { Seo } from "@/components/Seo";
 
 interface Service {
   _id: string;
@@ -28,10 +29,10 @@ interface Service {
 const categoryLabels: Record<string, string> = {
   entretien: "Entretien",
   nettoyage: "Nettoyage",
-  maintenance: "Maintenance",
-  diagnostic: "Diagnostic",
-  installation: "Installation",
+  diagnostic: "Nettoyage ciblé",
 };
+
+const getCategoryLabel = (category: string) => categoryLabels[category] || "Nettoyage climatisation";
 
 const Tarifs = () => {
   const [services, setServices] = useState<Service[]>([]);
@@ -54,7 +55,7 @@ const Tarifs = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const query = `*[_type == "service" && active == true] | order(order asc, price asc) {
+      const query = `*[_type == "service" && active == true] | order(order asc, price asc) {
           _id,
           title,
           slug,
@@ -102,6 +103,11 @@ const Tarifs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Tarifs nettoyage climatisation Alpes-Maritimes | NG Clim"
+        description="Consultez les tarifs NG Clim pour le nettoyage, le dégraissage et la désinfection de climatisation à La Gaude, Nice, Antibes et dans les Alpes-Maritimes."
+        canonicalPath="/tarifs"
+      />
       <Header />
       <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 section-padding">
@@ -112,10 +118,10 @@ const Tarifs = () => {
               <span className="text-sm font-medium">Nos tarifs</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Services & <span className="text-gradient">Tarification</span>
+              Tarifs de <span className="text-gradient">nettoyage climatisation</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Dès 79€ sur La Gaude, des prestations de qualité à des tarifs transparents. 
+              Dès 79€ sur La Gaude, des prestations de nettoyage et désinfection à des tarifs transparents. 
               Sur les Alpes-Maritimes, La Gaude, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var, Vence et leurs alentours.
             </p>
           </div>
@@ -132,7 +138,7 @@ const Tarifs = () => {
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                 }`}
               >
-                {cat === "all" ? "Tous" : categoryLabels[cat] || cat}
+                {cat === "all" ? "Tous" : getCategoryLabel(cat)}
               </button>
             ))}
           </div>
@@ -198,7 +204,7 @@ const Tarifs = () => {
                     {/* Catégorie */}
                     <div className="mb-3">
                       <span className="px-2 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full">
-                        {categoryLabels[service.category] || service.category}
+                        {getCategoryLabel(service.category)}
                       </span>
                     </div>
 
@@ -289,9 +295,9 @@ const Tarifs = () => {
             </div>
 
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
-              <h3 className="font-semibold text-foreground mb-2">Paiement flexible</h3>
+              <h3 className="font-semibold text-foreground mb-2">Prestation spécialisée</h3>
               <p className="text-sm text-muted-foreground">
-                Plusieurs modes de paiement acceptés
+                Une activité centrée sur le nettoyage et la désinfection
               </p>
             </div>
           </div>

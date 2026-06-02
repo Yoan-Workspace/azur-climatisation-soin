@@ -185,7 +185,7 @@ export const GoogleReviews = () => {
       "reviewCount": "24"
     },
     "areaServed": "Côte d'Azur",
-    "serviceType": "Entretien de climatisation"
+    "serviceType": "Nettoyage de climatisation"
   };
 
   // On duplique les avis pour le défilement infini
@@ -204,7 +204,7 @@ export const GoogleReviews = () => {
           Avis Clients NG Clim
         </h2>
         <p className="text-muted-foreground mb-6">
-          Ils nous font confiance pour l'entretien de leur clim à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude.
+          Ils nous font confiance pour le nettoyage de leur clim à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude.
         </p>
         <div className="flex items-center justify-center gap-2 mb-4">
           <div className="flex items-center gap-1">

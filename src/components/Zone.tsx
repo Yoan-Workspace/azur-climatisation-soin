@@ -12,7 +12,7 @@ const Zone = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Entretien et Nettoyage de Climatisation",
+    "serviceType": "Nettoyage et désinfection de climatisation",
     "provider": {
       "@type": "LocalBusiness",
       "name": "NG Clim"
@@ -21,7 +21,7 @@ const Zone = () => {
       "@type": "City",
       "name": city
     })),
-    "description": "Intervention rapide pour le nettoyage et la désinfection de climatisations dans toutes les Alpes-Maritimes."
+    "description": "Nettoyage, dégraissage et désinfection de climatisations dans les Alpes-Maritimes."
   };
 
   return (
@@ -35,11 +35,11 @@ const Zone = () => {
         <div className="text-center mb-12">
           {/* OPTIMISATION : Titre descriptif */}
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Où intervient NG Clim pour votre climatisation ?
+            Zone de nettoyage de climatisation dans les Alpes-Maritimes
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Basé sur la Côte d'Azur, je me déplace rapidement pour l'entretien 
-            et le nettoyage de vos installations de Nice.
+            Basé à La Gaude, je me déplace pour le nettoyage et la désinfection
+            de climatisation à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et alentours.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ const Zone = () => {
               <span
                 key={city}
                 // SEO : On ajoute un titre pour le contexte sémantique
-                title={`Entretien climatisation à ${city}`}
+                title={`Nettoyage climatisation à ${city}`}
                 className="px-4 py-2 bg-secondary rounded-full text-secondary-foreground text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all cursor-default animate-scale-in"
                 style={{ animationDelay: `${index * 0.03}s` }}
               >
@@ -70,9 +70,9 @@ const Zone = () => {
 
           <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/10">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              <strong>NG Clim</strong> se déplace à votre domicile ou dans vos bureaux pour toute maintenance de système 
-              split, multi-split ou gainable. Mon périmètre couvre les zones urbaines (Nice, La Gaude, Sophia Antipolis) 
-              ainsi que l'arrière-pays.
+              <strong>NG Clim</strong> se déplace à votre domicile ou dans vos bureaux pour nettoyer et désinfecter
+              vos unités de climatisation split, multi-split ou gainable accessible. L'activité est centrée sur
+              l'hygiène de l'air, la désinfection et la propreté des appareils.
             </p>
           </div>
         </div>

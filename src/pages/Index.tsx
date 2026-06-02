@@ -8,6 +8,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ChevronDown } from "lucide-react";
+import { Seo } from "@/components/Seo";
 
 const Index = () => {
   const [showScrollButton, setShowScrollButton] = useState(true);
@@ -63,6 +64,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Nettoyage climatisation Nice, Antibes, Cagnes-sur-Mer | NG Clim"
+        description="NG Clim nettoie et désinfecte les climatisations à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var, La Gaude et dans les Alpes-Maritimes."
+      />
       <Header />
       <main>
         <Hero />

@@ -62,7 +62,7 @@ const MentionsLegales = () => {
               </h2>
               <p className="text-muted-foreground">
                 Les informations recueillies via le formulaire de contact sont destinées 
-                exclusivement à ClimAzur pour le traitement de votre demande. Conformément 
+                exclusivement à NG Clim pour le traitement de votre demande. Conformément 
                 au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression 
                 de vos données.
               </p>

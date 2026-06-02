@@ -29,7 +29,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Award className="w-4 h-4" />
             <span className="text-sm font-medium">
-              Spécialiste nettoyage climatisation — Alpes-Maritimes (06)
+              Spécialiste du nettoyage de climatisation dans les Alpes-Maritimes
             </span>
           </div>
 
@@ -41,7 +41,7 @@ const Hero = () => {
             Nettoyage de{" "}
             <span className="text-gradient">Climatisation</span>
             <span className="block text-3xl md:text-4xl lg:text-5xl mt-3 text-foreground">
-              à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude — Promo d'été dès 79€
+              à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude
             </span>
           </h1>
 
@@ -50,12 +50,12 @@ const Hero = () => {
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl animate-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
-            Mauvaises odeurs, perte de puissance, filtres encrassés ?{" "}
+            Mauvaises odeurs, souffle moins agréable, filtres encrassés ?{" "}
             <strong className="text-foreground font-semibold">NG Clim</strong> intervient pour le{" "}
             <strong className="text-foreground font-semibold">
               nettoyage complet et la désinfection de votre climatisation
             </strong>{" "}
-            dans les Alpes-Maritimes. Particuliers et professionnels, retrouvez
+            avec une prestation exclusivement dédiée au nettoyage. Particuliers et professionnels, retrouvez
             un air sain avec un expert local de confiance.
           </p>
 
@@ -83,8 +83,8 @@ const Hero = () => {
                 <Shield className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="font-semibold text-foreground">Certifié</p>
-                <p className="text-sm text-muted-foreground">Professionnel agréé</p>
+                <p className="font-semibold text-foreground">Spécialisé</p>
+                <p className="text-sm text-muted-foreground">Hygiène de clim</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ const Hero = () => {
               </div>
               <div>
                 <p className="font-semibold text-foreground">Réactif</p>
-                <p className="text-sm text-muted-foreground">Intervention rapide</p>
+                <p className="text-sm text-muted-foreground">Devis gratuit</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

@@ -1,10 +1,4 @@
-# robots.txt
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://ng-climatisation.fr/sitemap.xml
-
-# Désindexer certaines pages si nécessaire (optionnel)
-# Disallow: /admin
-# Disallow: /api
+Sitemap: https://www.ng-climatisation.fr/sitemap.xml

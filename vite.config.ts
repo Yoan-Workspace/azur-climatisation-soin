@@ -12,6 +12,8 @@ export default defineConfig({
         '/',
         '/realisations',
         '/tarifs',
+        '/mentions-legales',
+        '/politique-confidentialite',
       ],
     }),
   ],

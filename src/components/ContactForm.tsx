@@ -152,7 +152,7 @@ const ContactForm = () => {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Décrivez votre besoin : type de climatisation, nombre d'unités, problème rencontré..."
+                  placeholder="Décrivez votre besoin : type de climatisation, nombre d'unités, odeurs, filtres encrassés..."
                   className="min-h-[150px] resize-none"
                 />
               </div>

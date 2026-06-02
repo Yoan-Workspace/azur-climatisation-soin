@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Camera, Loader2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
+import { Seo } from "@/components/Seo";
 
 interface Realisation {
   _id: string;
@@ -83,20 +84,25 @@ const Realisations = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Réalisations nettoyage climatisation Côte d'Azur | NG Clim"
+        description="Exemples de nettoyages et désinfections de climatisation réalisés par NG Clim pour particuliers et professionnels dans les Alpes-Maritimes."
+        canonicalPath="/realisations"
+      />
       <Header />
       <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 section-padding">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
               <Camera className="w-4 h-4" />
-              <span className="text-sm font-medium">Nos interventions</span>
+              <span className="text-sm font-medium">Nos nettoyages</span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Galerie de <span className="text-gradient">Réalisations</span>
+              Réalisations de <span className="text-gradient">nettoyage climatisation</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Découvrez quelques exemples de nos interventions d'entretien et de nettoyage 
-              de climatisations chez nos clients particuliers et professionnels.
+              Découvrez quelques exemples de nettoyages et désinfections de climatisation
+              chez nos clients particuliers et professionnels.
             </p>
           </div>
 

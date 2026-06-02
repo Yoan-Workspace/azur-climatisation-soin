@@ -7,6 +7,7 @@ import { ArrowLeft, Clock, Check, Loader2, Star, Euro } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import * as LucideIcons from "lucide-react";
+import { Seo } from "@/components/Seo";
 
 interface Service {
   _id: string;
@@ -28,10 +29,10 @@ interface Service {
 const categoryLabels: Record<string, string> = {
   entretien: "Entretien",
   nettoyage: "Nettoyage",
-  maintenance: "Maintenance",
-  diagnostic: "Diagnostic",
-  installation: "Installation",
+  diagnostic: "Nettoyage ciblé",
 };
+
+const getCategoryLabel = (category: string) => categoryLabels[category] || "Nettoyage climatisation";
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -130,6 +131,11 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title={`${service.title} | Nettoyage climatisation Alpes-Maritimes`}
+        description={`${service.description} Prestation NG Clim dédiée au nettoyage et à la désinfection de climatisation.`}
+        canonicalPath={`/services/${service.slug.current}`}
+      />
       <Header />
       <main className="pt-24 pb-16">
         {/* Hero Section */}
@@ -170,7 +176,7 @@ const ServiceDetail = () => {
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-4">
                 <span className="px-3 py-1 bg-secondary text-secondary-foreground text-sm font-medium rounded-full">
-                  {categoryLabels[service.category] || service.category}
+                  {getCategoryLabel(service.category)}
                 </span>
                 {service.popular && (
                   <div className="flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
@@ -273,10 +279,10 @@ const ServiceDetail = () => {
             </div>
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
               <h3 className="font-semibold text-foreground mb-2">
-                Intervention rapide
+                Prestation spécialisée
               </h3>
               <p className="text-sm text-muted-foreground">
-                Sous 48h
+                Nettoyage et désinfection
               </p>
             </div>
           </div>

@@ -97,9 +97,6 @@ export default defineType({
         list: [
           { title: 'Entretien', value: 'entretien' },
           { title: 'Nettoyage', value: 'nettoyage' },
-          { title: 'Maintenance', value: 'maintenance' },
-          { title: 'Diagnostic', value: 'diagnostic' },
-          { title: 'Installation', value: 'installation' },
         ],
       },
       validation: (Rule) => Rule.required(),

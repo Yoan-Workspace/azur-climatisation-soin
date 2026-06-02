@@ -1,30 +1,30 @@
-import { Wind, Wrench, Sparkles, Building2, Home, ThermometerSun } from "lucide-react";
+import { Wind, Sparkles, Building2, Home, ThermometerSun } from "lucide-react";
 
 const services = [
   {
     icon: Sparkles,
-    title: "Nettoyage & Dégraissage", // Plus précis que "Nettoyage complet"
+    title: "Nettoyage & Dégraissage",
     description: "Nettoyage haute pression des filtres, turbines et bacs à condensats. Élimination des mauvaises odeurs.",
   },
   {
     icon: Wind,
-    title: "Désinfection Bactéricide / Fongicide", // Mot clé puissant (santé)
+    title: "Désinfection Bactéricide / Fongicide",
     description: "Traitement anti-légionellose, antibactérien et fongicide pour un air sain, sans allergènes.",
   },
   {
     icon: Home,
     title: "Clim Maison & Appartement",
-    description: "Intervention rapide chez les particuliers sur tous types de splits, consoles et gainables.",
+    description: "Nettoyage chez les particuliers sur splits muraux, consoles et systèmes gainables accessibles.",
   },
   {
     icon: Building2,
-    title: "Clim Bureaux & Commerces", // Cible le B2B
-    description: "Contrats d'entretien annuels pour professionnels. Gestion de parcs multi-splits.",
+    title: "Clim Bureaux & Commerces",
+    description: "Nettoyage périodique pour professionnels, bureaux, commerces et parcs multi-splits.",
   },
   {
     icon: ThermometerSun, 
     title: "Performance Énergétique",
-    description: "Optimisation du rendement de votre appareil pour réduire votre consommation d'électricité.",
+    description: "Des unités propres respirent mieux et conservent un fonctionnement plus régulier au quotidien.",
   }
 ];
 
@@ -38,8 +38,7 @@ const Services = () => {
             Nos prestations de nettoyage de climatisation sur Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Une expertise complète pour prolonger la durée de vie de vos appareils 
-            et garantir un air pur sur la Côte d'Azur.
+            Une prestation dédiée au nettoyage, au dégraissage et à la désinfection des unités de climatisation.
           </p>
         </div>
 
