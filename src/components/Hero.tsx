@@ -17,6 +17,9 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Nettoyage et désinfection de climatisation à Nice et Antibes par NG Clim"
+          width={1360}
+          height={907}
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />

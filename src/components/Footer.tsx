@@ -62,7 +62,11 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <img
               src={imageLogo}
-              alt="NG Clim Logo"
+              alt="Logo NG Clim, spécialiste du nettoyage de climatisation"
+              width={144}
+              height={96}
+              loading="lazy"
+              decoding="async"
               className="h-24 w-auto object-contain rounded-lg"
             />
             </div>

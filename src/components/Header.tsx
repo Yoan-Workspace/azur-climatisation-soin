@@ -45,7 +45,10 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
             <img
               src={imageLogo}
-              alt="NG Clim Logo"
+              alt="Logo NG Clim, nettoyage de climatisation dans les Alpes-Maritimes"
+              width={144}
+              height={96}
+              decoding="async"
               className="h-24 w-auto object-contain rounded-lg"
             />
           </Link>

@@ -2,30 +2,33 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/NGClimIco.ico" />
+    <link rel="icon" type="image/x-icon" href="/NGClimIco.ico" />
+    <link rel="apple-touch-icon" href="/LogoNGclim.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nettoyage climatisation Nice, Antibes, Cagnes-sur-Mer | NG Clim</title>
-    <meta name="description" content="NG Clim nettoie et désinfecte les climatisations à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var, La Gaude et dans les Alpes-Maritimes. Devis gratuit." />
+    <meta name="theme-color" content="#1a8bbf" />
     <meta name="author" content="NG Clim" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://www.ng-climatisation.fr/" />
 
+    <!-- Géolocalisation pour le référencement local -->
+    <meta name="geo.region" content="FR-06" />
+    <meta name="geo.placename" content="La Gaude, Alpes-Maritimes" />
+    <meta name="geo.position" content="43.6664;7.1706" />
+    <meta name="ICBM" content="43.6664, 7.1706" />
+
+    <!-- Préconnexion aux serveurs de polices pour accélérer le rendu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Balises Open Graph / Twitter invariantes (les valeurs par page sont gérées dans le composant Seo) -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="NG Clim" />
-    <meta property="og:url" content="https://www.ng-climatisation.fr/" />
-    <meta property="og:title" content="Nettoyage climatisation dans les Alpes-Maritimes | NG Clim" />
-    <meta property="og:description" content="Nettoyage complet, dégraissage et désinfection de climatisation pour particuliers et professionnels sur la Côte d'Azur." />
-    <meta property="og:image" content="https://www.ng-climatisation.fr/LogoNGclim.jpg" />
+    <meta property="og:image:alt" content="NG Clim - Nettoyage de climatisation dans les Alpes-Maritimes" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nettoyage climatisation Nice, Antibes, Cagnes-sur-Mer | NG Clim" />
-    <meta name="twitter:description" content="Spécialiste du nettoyage et de la désinfection de climatisation dans les Alpes-Maritimes. Devis gratuit." />
-    <meta name="twitter:image" content="https://www.ng-climatisation.fr/LogoNGclim.jpg" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "HVACBusiness"],
         "@id": "https://www.ng-climatisation.fr/#business",
         "name": "NG Clim",
         "legalName": "NG Climatisation",
@@ -35,14 +38,29 @@
         "telephone": "+33660620574",
         "email": "ngclim06@gmail.com",
         "priceRange": "€€",
+        "currenciesAccepted": "EUR",
         "description": "Nettoyage, dégraissage et désinfection de climatisations pour particuliers et professionnels dans les Alpes-Maritimes.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "152 Chem. d'Altaïr",
           "postalCode": "06610",
           "addressLocality": "La Gaude",
+          "addressRegion": "Alpes-Maritimes",
           "addressCountry": "FR"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.6664,
+          "longitude": 7.1706
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "19:00"
+          }
+        ],
         "areaServed": [
           "Nice",
           "Antibes",
@@ -52,8 +70,14 @@
           "Cannes",
           "Grasse",
           "Menton",
+          "Vence",
           "Alpes-Maritimes"
         ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "24"
+        },
         "makesOffer": {
           "@type": "Offer",
           "itemOffered": {
@@ -73,4 +97,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-```

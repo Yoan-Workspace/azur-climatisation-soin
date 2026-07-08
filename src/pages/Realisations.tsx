@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Camera, Loader2, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Camera, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
 import { Seo } from "@/components/Seo";
 
@@ -14,36 +15,29 @@ interface Realisation {
   order?: number;
 }
 
+const REALISATIONS_QUERY = `*[_type == "realisation"] | order(order asc, _createdAt desc) {
+  _id,
+  title,
+  location,
+  type,
+  image,
+  order
+}`;
+
+// Récupère les réalisations au build (SSG) et lors de la navigation client.
+export async function realisationsLoader() {
+  try {
+    const realisations = await client.fetch<Realisation[]>(REALISATIONS_QUERY);
+    return { realisations: realisations ?? [] };
+  } catch (err) {
+    console.error("Erreur lors de la récupération des réalisations:", err);
+    return { realisations: [] as Realisation[] };
+  }
+}
+
 const Realisations = () => {
-  const [realisations, setRealisations] = useState<Realisation[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { realisations } = useLoaderData() as { realisations: Realisation[] };
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-
-  useEffect(() => {
-    const fetchRealisations = async () => {
-      try {
-        const query = `*[_type == "realisation"] | order(order asc, _createdAt desc) {
-          _id,
-          title,
-          location,
-          type,
-          image,
-          order
-        }`;
-        
-        const data = await client.fetch(query);
-        setRealisations(data);
-      } catch (err) {
-        console.error('Erreur lors de la récupération des réalisations:', err);
-        setError('Impossible de charger les réalisations');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchRealisations();
-  }, []);
 
   // Gestion des touches clavier pour la lightbox
   useEffect(() => {
@@ -106,25 +100,13 @@ const Realisations = () => {
             </p>
           </div>
 
-          {loading && (
-            <div className="flex justify-center items-center py-12">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
-            </div>
-          )}
-
-          {error && (
-            <div className="text-center py-12">
-              <p className="text-red-500">{error}</p>
-            </div>
-          )}
-
-          {!loading && !error && realisations.length === 0 && (
+          {realisations.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">Aucune réalisation disponible pour le moment.</p>
             </div>
           )}
 
-          {!loading && !error && realisations.length > 0 && (
+          {realisations.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {realisations.map((realisation, index) => (
                 <div
@@ -136,7 +118,11 @@ const Realisations = () => {
                   <div className="aspect-[4/3] overflow-hidden bg-secondary/50">
                     <img
                       src={urlFor(realisation.image).width(600).height(450).url()}
-                      alt={realisation.title}
+                      alt={`${realisation.title} - nettoyage climatisation à ${realisation.location}`}
+                      width={600}
+                      height={450}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

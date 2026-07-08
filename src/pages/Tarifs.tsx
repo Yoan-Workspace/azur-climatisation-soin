@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Badge, Euro, Clock, Check, Loader2, Star } from "lucide-react";
+import { Badge, Euro, Clock, Check, Star } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
 import { Button } from "@/components/ui/button";
 import * as LucideIcons from "lucide-react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLoaderData } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 
 interface Service {
@@ -34,10 +34,39 @@ const categoryLabels: Record<string, string> = {
 
 const getCategoryLabel = (category: string) => categoryLabels[category] || "Nettoyage climatisation";
 
+const TARIFS_QUERY = `*[_type == "service" && active == true] | order(order asc, price asc) {
+  _id,
+  title,
+  slug,
+  description,
+  fullDescription,
+  price,
+  priceLabel,
+  priceUnit,
+  duration,
+  icon,
+  image,
+  features,
+  category,
+  popular,
+  order
+}`;
+
+// Récupère la liste des services au build (SSG) et lors de la navigation client.
+export async function tarifsLoader() {
+  try {
+    const services = await client.fetch<Service[]>(TARIFS_QUERY);
+    return { services: services ?? [] };
+  } catch (err) {
+    console.error("Erreur lors de la récupération des services:", err);
+    return { services: [] as Service[] };
+  }
+}
+
+const SITE_URL = "https://www.ng-climatisation.fr";
+
 const Tarifs = () => {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { services } = useLoaderData() as { services: Service[] };
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const navigate = useNavigate();
 
@@ -52,39 +81,28 @@ const Tarifs = () => {
     }, 100);
   };
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-      const query = `*[_type == "service" && active == true] | order(order asc, price asc) {
-          _id,
-          title,
-          slug,
-          description,
-          fullDescription,
-          price,
-          priceLabel,
-          priceUnit,
-          duration,
-          icon,
-          image,
-          features,
-          category,
-          popular,
-          order
-        }`;
-        
-        const data = await client.fetch(query);
-        setServices(data);
-      } catch (err) {
-        console.error('Erreur lors de la récupération des services:', err);
-        setError('Impossible de charger les services');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServices();
-  }, []);
+  // Données structurées : liste des prestations avec leur prix pour les résultats de recherche.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Tarifs nettoyage climatisation NG Clim",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "url": `${SITE_URL}/services/${service.slug.current}`,
+        "offers": {
+          "@type": "Offer",
+          "price": service.price,
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+        },
+      },
+    })),
+  };
 
   // Récupérer les catégories uniques
   const categories = ["all", ...Array.from(new Set(services.map(s => s.category)))];
@@ -108,6 +126,12 @@ const Tarifs = () => {
         description="Consultez les tarifs NG Clim pour le nettoyage, le dégraissage et la désinfection de climatisation à La Gaude, Nice, Antibes et dans les Alpes-Maritimes."
         canonicalPath="/tarifs"
       />
+      {services.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       <Header />
       <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 section-padding">
@@ -143,26 +167,14 @@ const Tarifs = () => {
             ))}
           </div>
 
-          {loading && (
-            <div className="flex justify-center items-center py-12">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
-            </div>
-          )}
-
-          {error && (
-            <div className="text-center py-12">
-              <p className="text-red-500">{error}</p>
-            </div>
-          )}
-
-          {!loading && !error && filteredServices.length === 0 && (
+          {filteredServices.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">Aucun service disponible dans cette catégorie.</p>
             </div>
           )}
 
           {/* Grille des services */}
-          {!loading && !error && filteredServices.length > 0 && (
+          {filteredServices.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredServices.map((service, index) => (
                 <div
@@ -187,7 +199,11 @@ const Tarifs = () => {
                     <div className="aspect-video overflow-hidden bg-secondary/50">
                       <img
                         src={urlFor(service.image).width(600).height(400).url()}
-                        alt={service.title}
+                        alt={`${service.title} - NG Clim`}
+                        width={600}
+                        height={400}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>

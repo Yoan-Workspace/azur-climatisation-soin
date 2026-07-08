@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, useLoaderData } from "react-router-dom";
+import type { LoaderFunctionArgs } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock, Check, Loader2, Star, Euro } from "lucide-react";
+import { ArrowLeft, Clock, Check, Star, Euro } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import * as LucideIcons from "lucide-react";
@@ -26,6 +26,49 @@ interface Service {
   popular: boolean;
 }
 
+const SERVICE_QUERY = `*[_type == "service" && slug.current == $slug && active == true][0] {
+  _id,
+  title,
+  slug,
+  description,
+  fullDescription,
+  price,
+  priceLabel,
+  priceUnit,
+  duration,
+  icon,
+  image,
+  features,
+  category,
+  popular
+}`;
+
+// Récupère les données du service au build (SSG) et lors de la navigation client.
+export async function serviceLoader({ params }: LoaderFunctionArgs) {
+  const slug = params.slug;
+  if (!slug) return { service: null };
+  try {
+    const service = await client.fetch<Service | null>(SERVICE_QUERY, { slug });
+    return { service: service ?? null };
+  } catch (err) {
+    console.error("Erreur lors de la récupération du service:", err);
+    return { service: null };
+  }
+}
+
+// Détermine les pages /services/:slug à pré-générer en HTML statique.
+export async function getServiceStaticPaths(): Promise<string[]> {
+  try {
+    const slugs = await client.fetch<{ current: string }[]>(
+      `*[_type == "service" && active == true && defined(slug.current)].slug.current`
+    );
+    return slugs.map((current: any) => `/services/${current}`);
+  } catch (err) {
+    console.error("Impossible de lister les services pour le pré-rendu:", err);
+    return [];
+  }
+}
+
 const categoryLabels: Record<string, string> = {
   entretien: "Entretien",
   nettoyage: "Nettoyage",
@@ -35,51 +78,9 @@ const categoryLabels: Record<string, string> = {
 const getCategoryLabel = (category: string) => categoryLabels[category] || "Nettoyage climatisation";
 
 const ServiceDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { service } = useLoaderData() as { service: Service | null };
+  const params = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [service, setService] = useState<Service | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchService = async () => {
-      if (!slug) return;
-
-      try {
-        const query = `*[_type == "service" && slug.current == $slug && active == true][0] {
-          _id,
-          title,
-          slug,
-          description,
-          fullDescription,
-          price,
-          priceLabel,
-          priceUnit,
-          duration,
-          icon,
-          image,
-          features,
-          category,
-          popular
-        }`;
-
-        const data = await client.fetch(query, { slug });
-        
-        if (!data) {
-          setError("Service introuvable");
-        } else {
-          setService(data);
-        }
-      } catch (err) {
-        console.error("Erreur lors de la récupération du service:", err);
-        setError("Impossible de charger le service");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchService();
-  }, [slug]);
 
   const handleContactClick = () => {
     navigate("/");
@@ -97,26 +98,18 @@ const ServiceDetail = () => {
     return IconComponent ? <IconComponent className="w-8 h-8" /> : null;
   };
 
-  if (loading) {
+  if (!service) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
-        <div className="flex justify-center items-center min-h-[60vh] pt-24">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
-  if (error || !service) {
-    return (
-      <div className="min-h-screen bg-background">
+        <Seo
+          title="Service introuvable | NG Clim"
+          description="Ce service de nettoyage de climatisation est introuvable. Découvrez toutes nos prestations."
+          canonicalPath={`/services/${params.slug ?? ""}`}
+          noindex
+        />
         <Header />
         <div className="max-w-4xl mx-auto px-6 md:px-8 pt-32 pb-16 text-center">
-          <h1 className="text-3xl font-bold text-foreground mb-4">
-            {error || "Service introuvable"}
-          </h1>
+          <h1 className="text-3xl font-bold text-foreground mb-4">Service introuvable</h1>
           <Link to="/tarifs">
             <Button variant="hero">
               <ArrowLeft className="w-4 h-4" />
@@ -129,12 +122,50 @@ const ServiceDetail = () => {
     );
   }
 
+  const imageUrl = service.image
+    ? urlFor(service.image).width(1200).height(630).url()
+    : undefined;
+
+  // Données structurées : permet à Google d'afficher le service et son prix.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "serviceType": "Nettoyage de climatisation",
+    "category": getCategoryLabel(service.category),
+    "description": service.description,
+    "url": `https://www.ng-climatisation.fr/services/${service.slug.current}`,
+    ...(imageUrl ? { image: imageUrl } : {}),
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "NG Clim",
+      "telephone": "+33660620574",
+      "areaServed": "Alpes-Maritimes",
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Alpes-Maritimes",
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": service.price,
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "url": `https://www.ng-climatisation.fr/services/${service.slug.current}`,
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={`${service.title} | Nettoyage climatisation Alpes-Maritimes`}
+        title={`${service.title} – ${service.price}€ | Nettoyage climatisation Alpes-Maritimes`}
         description={`${service.description} Prestation NG Clim dédiée au nettoyage et à la désinfection de climatisation.`}
         canonicalPath={`/services/${service.slug.current}`}
+        image={imageUrl}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
       <main className="pt-24 pb-16">
@@ -144,7 +175,10 @@ const ServiceDetail = () => {
             <div className="w-full h-[400px] overflow-hidden bg-secondary/50">
               <img
                 src={urlFor(service.image).width(1920).height(800).url()}
-                alt={service.title}
+                alt={`${service.title} - nettoyage climatisation NG Clim`}
+                width={1920}
+                height={800}
+                decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />

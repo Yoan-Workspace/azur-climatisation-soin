@@ -145,7 +145,11 @@ const ReviewCard = ({ review }: { review: typeof reviews[0] }) => (
     <div className="flex items-center gap-3">
       <img
         src={review.avatar}
-        alt={review.author}
+        alt={`Avis Google de ${review.author}`}
+        width={40}
+        height={40}
+        loading="lazy"
+        decoding="async"
         className="w-10 h-10 rounded-full"
       />
       <div className="min-w-0">
