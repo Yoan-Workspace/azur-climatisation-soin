@@ -1,12 +1,11 @@
-import { Phone, Mail, Instagram, Facebook, Camera, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import imageLogo from "/src/assets/LogoNGClim.png";
 import confetti from 'canvas-confetti';
-import { useState } from "react";
+
+const DEVELOPER_URL = "https://yoanfreelancedev.netlify.app/";
 
 const Footer = () => {
-  const [showCopied, setShowCopied] = useState(false);
-
   const currentYear = new Date().getFullYear();
   const handleHeartClick = (e: React.MouseEvent) => {
     // Crée un effet confetti de cœurs
@@ -37,21 +36,6 @@ const Footer = () => {
       gravity: 0.7,
       ticks: 150
     });
-  };
-
-  const handleEmailClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    const email = 'yoansoussand@gmail.com';
-    
-    // Copie l'email dans le presse-papier
-    try {
-      await navigator.clipboard.writeText(email);
-      setShowCopied(true);
-      setTimeout(() => setShowCopied(false), 2000);
-    } catch (err) {
-      // Si la copie échoue, ouvre le client email
-      window.location.href = `mailto:${email}`;
-    }
   };
 
   return (
@@ -118,19 +102,14 @@ const Footer = () => {
                     <Heart className="w-4 h-4 fill-current mt-1" />
                   </button>
                   <span>par</span>
-                  <div className="relative inline-block">
-                    <button
-                      onClick={handleEmailClick}
-                      className="text-accent hover:underline cursor-pointer font-medium"
-                    >
-                     Yoan Soussand - yoansoussand@gmail.com
-                    </button>
-                    {showCopied && (
-                      <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground px-2 py-1 rounded text-xs whitespace-nowrap animate-fade-in">
-                        ✓ Email copié !
-                      </span>
-                    )}
-                  </div>
+                  <a
+                    href={DEVELOPER_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline font-medium"
+                  >
+                    Yoan Freelance Dev
+                  </a>
                 </div>
               </li>
             </ul>
