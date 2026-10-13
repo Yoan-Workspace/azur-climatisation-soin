@@ -49,26 +49,16 @@ const Zone = () => {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {zoneTowns.map((city) =>
-              city.slug ? (
-                <Link
-                  key={city.name}
-                  to={`/nettoyage-climatisation/${city.slug}`}
-                  title={`Nettoyage climatisation à ${city.name}`}
-                  className="px-4 py-2 bg-secondary rounded-full text-secondary-foreground text-sm font-medium underline decoration-primary/40 underline-offset-4 hover:bg-primary hover:text-primary-foreground hover:no-underline transition-colors"
-                >
-                  {city.name}
-                </Link>
-              ) : (
-                <span
-                  key={city.name}
-                  title={`Nettoyage climatisation à ${city.name}`}
-                  className="px-4 py-2 bg-secondary rounded-full text-secondary-foreground text-sm font-medium"
-                >
-                  {city.name}
-                </span>
-              ),
-            )}
+            {zoneTowns.map((city) => (
+              <Link
+                key={city.name}
+                to={`/nettoyage-climatisation/${city.slug}`}
+                title={`Nettoyage climatisation à ${city.name}`}
+                className="px-4 py-2 bg-secondary rounded-full text-secondary-foreground text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                {city.name}
+              </Link>
+            ))}
           </div>
 
           <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/10">
