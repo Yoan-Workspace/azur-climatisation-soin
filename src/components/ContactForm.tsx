@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import { contactCommunes } from "@/data/cities";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     type: "particulier",
+    commune: "",
     message: "",
   });
+
+  useEffect(() => {
+    const commune = searchParams.get("commune");
+    if (commune && contactCommunes.includes(commune as (typeof contactCommunes)[number])) {
+      setFormData((current) => ({ ...current, commune }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +39,8 @@ const ContactForm = () => {
         from_email: formData.email,
         from_phone: formData.phone || "Non renseigné",
         client_type: formData.type === "particulier" ? "Particulier" : "Professionnel",
-        message: formData.message,
+        commune: formData.commune,
+        message: `Commune : ${formData.commune}\n\n${formData.message}`,
       };
 
       // Envoi de l'email via EmailJS
@@ -52,6 +64,7 @@ const ContactForm = () => {
         email: "",
         phone: "",
         type: "particulier",
+        commune: "",
         message: "",
       });
     } catch (error) {
@@ -123,7 +136,7 @@ const ContactForm = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="06 60 62 05 74"
+                    placeholder="06 12 34 56 78"
                     className="h-12"
                   />
                 </div>
@@ -144,6 +157,24 @@ const ContactForm = () => {
               </div>
 
               <div className="mb-6">
+                <label htmlFor="commune" className="block text-sm font-medium text-foreground mb-2">
+                  Commune *
+                </label>
+                <select
+                  id="commune"
+                  required
+                  value={formData.commune}
+                  onChange={(e) => setFormData({ ...formData, commune: e.target.value })}
+                  className="flex h-12 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <option value="" disabled>Choisissez votre commune</option>
+                  {contactCommunes.map((commune) => (
+                    <option key={commune} value={commune}>{commune}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="mb-6">
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Votre message *
                 </label>
@@ -156,6 +187,16 @@ const ContactForm = () => {
                   className="min-h-[150px] resize-none"
                 />
               </div>
+
+              <label className="flex items-start gap-3 text-sm text-muted-foreground mb-6">
+                <input type="checkbox" required className="mt-1 accent-primary" />
+                <span>
+                  J'accepte que ces informations soient utilisées pour répondre à ma demande, conformément à la{" "}
+                  <Link to="/politique-confidentialite" className="text-primary underline underline-offset-2">
+                    politique de confidentialité
+                  </Link>.
+                </span>
+              </label>
 
               <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
                 {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
@@ -180,11 +221,15 @@ const ContactForm = () => {
                   </div>
                   <span>ngclim06@gmail.com</span>
                 </a>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <div className="flex items-start gap-3 text-muted-foreground">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
-                  <span>Côte d'Azur (06)</span>
+                  <span className="leading-snug">
+                    Place Jean Moulin<br />
+                    13320 Bouc-Bel-Air
+                    <span className="block text-sm mt-1">Intervention à Gardanne et dans le Pays d'Aix</span>
+                  </span>
                 </div>
               </div>
             </div>

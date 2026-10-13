@@ -1,9 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Seo } from "@/components/Seo";
 
 const MentionsLegales = () => {
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Mentions légales | NG Clim"
+        description="Mentions légales du site NG Clim, nettoyage et désinfection de climatisation à Gardanne et dans le Pays d'Aix."
+        canonicalPath="/mentions-legales"
+      />
       <Header />
       <main className="pt-24 pb-16">
         <div className="container-narrow section-padding">
@@ -19,8 +25,8 @@ const MentionsLegales = () => {
               <p className="text-muted-foreground mb-4">
                 Le présent site est édité par :<br />
                 <strong>NG Climatisation</strong><br />
-                 152 Chem. d'Altaïr,<br />
-                 06610 La Gaude<br />
+                 Place Jean Moulin<br />
+                 13320 Bouc-Bel-Air<br />
                 Téléphone : 06 60 62 05 74<br />
                 Email : ngclim06@gmail.com
               </p>

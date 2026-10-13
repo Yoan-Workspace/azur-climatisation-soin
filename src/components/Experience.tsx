@@ -1,7 +1,7 @@
 import { CheckCircle2 } from "lucide-react";
 
 const benefits = [
-  "Plus de 10 ans d'expérience autour de la climatisation sur la Côte d'Azur",
+  "Plus de 10 ans d'expérience autour de la climatisation, désormais à Gardanne",
   "Spécialiste du nettoyage de climatisation pour particuliers et professionnels",
   "Prestation exclusivement dédiée au nettoyage et à la désinfection",
   "Devis gratuit, transparent et sans frais cachés",
@@ -20,9 +20,9 @@ const Experience = () => {
               Pourquoi choisir NG Clim pour nettoyer votre climatisation ?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Depuis plus d'une décennie, j'accompagne les résidents des Alpes-Maritimes sur
-              Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude, 
-              pour le nettoyage et la désinfection de leurs climatisations. Mon engagement :
+              Depuis plus d'une décennie, j'accompagne particuliers et professionnels
+              pour le nettoyage et la désinfection de leurs climatisations. J'interviens
+              aujourd'hui à Gardanne, Aix-en-Provence, Bouc-Bel-Air, Meyreuil, Fuveau et alentours. Mon engagement :
               un appareil plus propre, un air plus sain et une prestation claire, centrée sur l'hygiène.
             </p>
             <ul className="space-y-4">
@@ -54,12 +54,12 @@ const Experience = () => {
                   <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nettoyages</p>
                 </div>
                 <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-sm border border-border/50 text-center">
-                  <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">100%</p>
-                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Nettoyage</p>
+                  <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">24h</p>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Pour un devis</p>
                 </div>
                 <div className="bg-card rounded-2xl p-4 sm:p-6 shadow-sm border border-border/50 text-center">
-                  <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">06</p>
-                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Secteur Alpes-M.</p>
+                  <p className="text-3xl sm:text-4xl font-bold text-primary mb-1">13</p>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wider">Bouches-du-Rhône</p>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Award } from "lucide-react";
+import { ArrowRight, Shield, Clock, Award, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-climatisationA.jpg";
 
 const Hero = () => {
@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Nettoyage et désinfection de climatisation à Nice et Antibes par NG Clim"
+          alt="Nettoyage et désinfection de climatisation à Gardanne et Aix-en-Provence par NG Clim"
           width={1360}
           height={907}
           decoding="async"
@@ -32,7 +32,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Award className="w-4 h-4" />
             <span className="text-sm font-medium">
-              Spécialiste du nettoyage de climatisation dans les Alpes-Maritimes
+              Spécialiste du nettoyage de climatisation à Gardanne et dans le Pays d'Aix
             </span>
           </div>
 
@@ -44,7 +44,7 @@ const Hero = () => {
             Nettoyage de{" "}
             <span className="text-gradient">Climatisation</span>
             <span className="block text-3xl md:text-4xl lg:text-5xl mt-3 text-foreground">
-              à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude
+              à Gardanne
             </span>
           </h1>
 
@@ -54,12 +54,8 @@ const Hero = () => {
             style={{ animationDelay: "0.2s" }}
           >
             Mauvaises odeurs, souffle moins agréable, filtres encrassés ?{" "}
-            <strong className="text-foreground font-semibold">NG Clim</strong> intervient pour le{" "}
-            <strong className="text-foreground font-semibold">
-              nettoyage complet et la désinfection de votre climatisation
-            </strong>{" "}
-            avec une prestation exclusivement dédiée au nettoyage. Particuliers et professionnels, retrouvez
-            un air sain avec un expert local de confiance.
+            <strong className="text-foreground font-semibold">NG Clim</strong> nettoie et désinfecte
+            votre climatisation à Gardanne, Aix-en-Provence, Bouc-Bel-Air, Meyreuil, Fuveau et dans le Pays d'Aix.
           </p>
 
           {/* CTA */}
@@ -71,8 +67,11 @@ const Hero = () => {
               Demander un devis gratuit
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="hero-outline" size="xl" onClick={scrollToContact}>
-              Nous contacter
+            <Button variant="hero-outline" size="xl" asChild>
+              <a href="tel:+33660620574">
+                <Phone className="w-5 h-5" />
+                06 60 62 05 74
+              </a>
             </Button>
           </div>
 

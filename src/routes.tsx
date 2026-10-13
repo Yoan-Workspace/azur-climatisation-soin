@@ -30,6 +30,16 @@ export const routes: RouteRecord[] = [
         entry: "src/pages/Realisations.tsx",
       },
       {
+        path: "nettoyage-climatisation/:slug",
+        lazy: async () => {
+          const m = await import("./pages/CityPage");
+          return { Component: m.default, loader: m.cityLoader };
+        },
+        entry: "src/pages/CityPage.tsx",
+        getStaticPaths: async () =>
+          (await import("./pages/CityPage")).getCityStaticPaths(),
+      },
+      {
         path: "services/:slug",
         lazy: async () => {
           const m = await import("./pages/ServiceDetail");

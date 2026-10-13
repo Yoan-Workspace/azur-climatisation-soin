@@ -4,170 +4,106 @@ import { Menu, X, Phone } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import imageLogo from "/src/assets/LogoNGClim.png";
 
+const PHONE_HREF = "tel:+33660620574";
+const PHONE_LABEL = "06 60 62 05 74";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const goToSection = (id: string) => {
+    closeMenu();
+    if (location.pathname === "/" && !location.search) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
     }
-    setIsMenuOpen(false);
+    navigate(`/#${id}`);
   };
 
-  const handleContactClick = (e: React.MouseEvent, id: string) => {
-    e.preventDefault();
-
-    // Si on est déjà sur la page d'accueil
-    if (location.pathname === '/') {
-      // Scroll direct vers le formulaire
-      scrollToSection(id);
-    } else {
-      // Sinon, navigue vers l'accueil puis scroll
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
-    }
-    setIsMenuOpen(false);
-  };
+  const linkClass = "text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap text-sm";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20 gap-4">
+          <Link to="/" className="flex items-center shrink-0" onClick={() => window.scrollTo(0, 0)}>
             <img
               src={imageLogo}
-              alt="Logo NG Clim, nettoyage de climatisation dans les Alpes-Maritimes"
+              alt="Logo NG Clim, nettoyage de climatisation à Gardanne"
               width={144}
               height={96}
               decoding="async"
-              className="h-24 w-auto object-contain rounded-lg"
+              className="h-16 w-auto object-contain"
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-            <button
-              onClick={(e) => handleContactClick(e, "services")}
-              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7" aria-label="Navigation principale">
+            <button type="button" onClick={() => goToSection("services")} className={linkClass}>
               Services
             </button>
-            <button
-              onClick={(e) => handleContactClick(e, "experience")}
-              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Expérience
+            <button type="button" onClick={() => goToSection("zone")} className={linkClass}>
+              Secteur
             </button>
-            <button
-              onClick={(e) => handleContactClick(e, "zone")}
-              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
-              Zone d'intervention
-            </button>
-            <Link
-              to="/realisations"
-              onClick={() => window.scrollTo(0, 0)}
-              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
+            <Link to="/realisations" onClick={() => window.scrollTo(0, 0)} className={linkClass}>
               Réalisations
             </Link>
-            <Link
-              to="/tarifs"
-              onClick={() => window.scrollTo(0, 0)}
-              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
+            <Link to="/tarifs" onClick={() => window.scrollTo(0, 0)} className={linkClass}>
               Tarifs
             </Link>
-            <button
-              onClick={(e) => handleContactClick(e, "contact")}
-              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-            >
+            <button type="button" onClick={() => goToSection("contact")} className={linkClass}>
               Contact
             </button>
-            <Button variant="hero" onClick={(e) => handleContactClick(e, "contact")}>
+            <a href={PHONE_HREF} className="hidden lg:inline-flex items-center gap-2 text-sm font-medium text-foreground">
+              <Phone className="w-4 h-4 text-primary" />
+              {PHONE_LABEL}
+            </a>
+            <Button variant="hero" onClick={() => goToSection("contact")}>
               Devis gratuit
             </Button>
           </nav>
 
-          {/* Mobile Menu Button - Aligné à droite */}
-          <button
-            className="md:hidden p-2 ml-auto"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center">
+            <a href={PHONE_HREF} className="p-2 text-primary" aria-label={`Appeler le ${PHONE_LABEL}`}>
+              <Phone className="w-5 h-5" />
+            </a>
+            <button
+              type="button"
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation - Menu déroulant sous le header */}
         {isMenuOpen && (
-          <nav className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-md border-b border-border shadow-lg animate-fade-in">
-            <div className="px-6 py-4 flex flex-col gap-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
-              <button
-                onClick={(e) => handleContactClick(e, "services")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
+          <nav className="md:hidden absolute left-0 right-0 top-full bg-background/95 backdrop-blur-md border-b border-border animate-fade-in" aria-label="Navigation mobile">
+            <div className="px-6 py-4 flex flex-col gap-1 max-h-[calc(100vh-5rem)] overflow-y-auto">
+              <a href={PHONE_HREF} className="flex items-center gap-2 text-primary font-medium py-3">
+                <Phone className="w-4 h-4" />
+                {PHONE_LABEL}
+              </a>
+              <button type="button" onClick={() => goToSection("services")} className="text-left text-muted-foreground py-3">
                 Services
               </button>
-              <button
-                onClick={(e) => handleContactClick(e, "experience")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
-                Expérience
+              <button type="button" onClick={() => goToSection("zone")} className="text-left text-muted-foreground py-3">
+                Secteur
               </button>
-              <button
-                onClick={(e) => handleContactClick(e, "zone")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
-                Zone d'intervention
-              </button>
-              <Link
-                to="/realisations"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.scrollTo(0, 0);
-                }}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
+              <Link to="/realisations" onClick={closeMenu} className="text-muted-foreground py-3">
                 Réalisations
               </Link>
-              <Link
-                to="/tarifs"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.scrollTo(0, 0);
-                }}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
+              <Link to="/tarifs" onClick={closeMenu} className="text-muted-foreground py-3">
                 Tarifs
               </Link>
-              <button
-                onClick={(e) => handleContactClick(e, "contact")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
+              <button type="button" onClick={() => goToSection("contact")} className="text-left text-muted-foreground py-3">
                 Contact
               </button>
-              <a 
-                href="tel:+33660620574" 
-                className="flex items-center gap-2 text-primary font-medium py-2"
-              >
-                <Phone className="w-4 h-4" />
-                06 60 62 05 74
-              </a>
-              <Button 
-                variant="hero" 
-                onClick={(e) => handleContactClick(e, "contact")} 
-                className="mt-2 w-full"
-              >
+              <Button variant="hero" onClick={() => goToSection("contact")} className="mt-2 w-full">
                 Devis gratuit
               </Button>
             </div>

@@ -179,36 +179,17 @@ const ReviewCard = ({ review }: { review: typeof reviews[0] }) => (
 );
 
 export const GoogleReviews = () => {
-  const jsonLd = {
-    "@context": "https://schema.org/",
-    "@type": "LocalBusiness",
-    "name": "NG Clim",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "24"
-    },
-    "areaServed": "Côte d'Azur",
-    "serviceType": "Nettoyage de climatisation"
-  };
-
-  // On duplique les avis pour le défilement infini
   const doubled = [...reviews, ...reviews];
 
   return (
     <section id="reviews" className="py-20 bg-secondary/30 overflow-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* En-tête */}
       <div className="container mx-auto px-4 text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
           Avis Clients NG Clim
         </h2>
         <p className="text-muted-foreground mb-6">
-          Ils nous font confiance pour le nettoyage de leur clim à Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude.
+          Ils nous font confiance pour le nettoyage de leur clim à Gardanne, Aix-en-Provence, Bouc-Bel-Air et dans le Pays d'Aix.
         </p>
         <div className="flex items-center justify-center gap-2 mb-4">
           <div className="flex items-center gap-1">

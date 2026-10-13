@@ -122,8 +122,8 @@ const Tarifs = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Tarifs nettoyage climatisation Alpes-Maritimes | NG Clim"
-        description="Consultez les tarifs NG Clim pour le nettoyage, le dégraissage et la désinfection de climatisation à La Gaude, Nice, Antibes et dans les Alpes-Maritimes."
+        title="Tarifs nettoyage climatisation Gardanne | NG Clim"
+        description="Tarifs NG Clim pour le nettoyage, le dégraissage et la désinfection de climatisation à Gardanne, Aix-en-Provence, Bouc-Bel-Air et dans les Bouches-du-Rhône."
         canonicalPath="/tarifs"
       />
       {services.length > 0 && (
@@ -145,8 +145,8 @@ const Tarifs = () => {
               Tarifs de <span className="text-gradient">nettoyage climatisation</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Dès 79€ sur La Gaude, des prestations de nettoyage et désinfection à des tarifs transparents. 
-              Sur les Alpes-Maritimes, La Gaude, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var, Vence et leurs alentours.
+              L'entretien est à 99€ et le nettoyage complet à 149€, à Gardanne comme à Aix-en-Provence,
+              Bouc-Bel-Air, Meyreuil, Fuveau et dans le reste du Pays d'Aix.
             </p>
           </div>
 
@@ -302,7 +302,7 @@ const Tarifs = () => {
           )}
 
           {/* Informations supplémentaires */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
               <h3 className="font-semibold text-foreground mb-2">Devis gratuit</h3>
               <p className="text-sm text-muted-foreground">

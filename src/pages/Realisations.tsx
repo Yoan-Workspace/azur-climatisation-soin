@@ -79,8 +79,8 @@ const Realisations = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Réalisations nettoyage climatisation Côte d'Azur | NG Clim"
-        description="Exemples de nettoyages et désinfections de climatisation réalisés par NG Clim pour particuliers et professionnels dans les Alpes-Maritimes."
+        title="Réalisations nettoyage climatisation Gardanne | NG Clim"
+        description="Exemples de nettoyages et désinfections de climatisation réalisés par NG Clim pour particuliers et professionnels à Gardanne, Aix-en-Provence et dans les Bouches-du-Rhône."
         canonicalPath="/realisations"
       />
       <Header />

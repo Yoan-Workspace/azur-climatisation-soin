@@ -1,4 +1,6 @@
-import { Wind, Sparkles, Building2, Home, ThermometerSun } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Wind, Sparkles, Building2, Home, ThermometerSun, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -35,10 +37,10 @@ const Services = () => {
         <div className="text-center mb-12">
           {/* OPTIMISATION SEO : Le H2 décrit exactement l'activité */}
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Nos prestations de nettoyage de climatisation sur Nice, Antibes, Cagnes-sur-Mer, Saint-Laurent-du-Var et La Gaude
+            Nettoyage et désinfection de climatisation
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Une prestation dédiée au nettoyage, au dégraissage et à la désinfection des unités de climatisation.
+            La même prestation à Gardanne, Aix-en-Provence, Bouc-Bel-Air, Meyreuil, Fuveau et dans le Pays d'Aix.
           </p>
         </div>
 
@@ -61,6 +63,15 @@ const Services = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/tarifs">
+              Voir les tarifs
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

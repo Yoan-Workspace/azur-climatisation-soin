@@ -140,11 +140,11 @@ const ServiceDetail = () => {
       "@type": "LocalBusiness",
       "name": "NG Clim",
       "telephone": "+33660620574",
-      "areaServed": "Alpes-Maritimes",
+      "areaServed": "Gardanne, Aix-en-Provence et Bouches-du-Rhône",
     },
     "areaServed": {
       "@type": "AdministrativeArea",
-      "name": "Alpes-Maritimes",
+      "name": "Bouches-du-Rhône",
     },
     "offers": {
       "@type": "Offer",
@@ -158,7 +158,7 @@ const ServiceDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={`${service.title} – ${service.price}€ | Nettoyage climatisation Alpes-Maritimes`}
+        title={`${service.title} à ${service.price}€ | NG Clim`}
         description={`${service.description} Prestation NG Clim dédiée au nettoyage et à la désinfection de climatisation.`}
         canonicalPath={`/services/${service.slug.current}`}
         image={imageUrl}
@@ -302,7 +302,7 @@ const ServiceDetail = () => {
           </div>
 
           {/* Informations supplémentaires */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 text-center">
               <h3 className="font-semibold text-foreground mb-2">
                 Devis gratuit

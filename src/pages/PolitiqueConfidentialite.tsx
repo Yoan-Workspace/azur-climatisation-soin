@@ -1,9 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Seo } from "@/components/Seo";
 
 const PolitiqueConfidentialite = () => {
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Politique de confidentialité | NG Clim"
+        description="Politique de confidentialité de NG Clim : utilisation des données envoyées via le formulaire de contact."
+        canonicalPath="/politique-confidentialite"
+      />
       <Header />
       <main className="pt-24 pb-16">
         <div className="container-narrow section-padding">

@@ -17,7 +17,7 @@ const NotFound = () => {
     <div className="min-h-screen bg-background">
       <Seo
         title="Page introuvable (404) | NG Clim"
-        description="La page demandée n'existe pas. Retrouvez le nettoyage et la désinfection de climatisation NG Clim dans les Alpes-Maritimes."
+        description="La page demandée n'existe pas. Retrouvez le nettoyage et la désinfection de climatisation NG Clim à Gardanne et dans le Pays d'Aix."
         noindex
       />
       <Header />

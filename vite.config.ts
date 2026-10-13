@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import sitemap from 'vite-plugin-sitemap'
+import { cityPaths } from './src/data/cities'
 
 const SANITY_PROJECT_ID = '9wgdwmzk'
 const SANITY_DATASET = 'production'
@@ -36,6 +37,7 @@ export default defineConfig(async () => {
           '/tarifs',
           '/mentions-legales',
           '/politique-confidentialite',
+          ...cityPaths,
           ...serviceRoutes,
         ],
       }),
