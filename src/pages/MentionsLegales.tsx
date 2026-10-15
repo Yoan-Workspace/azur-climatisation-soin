@@ -28,7 +28,7 @@ const MentionsLegales = () => {
                  Place Jean Moulin<br />
                  13320 Bouc-Bel-Air<br />
                 Téléphone : 06 60 62 05 74<br />
-                Email : ngclim06@gmail.com
+                Email : ngc.paca@gmail.com
               </p>
               <p className="text-muted-foreground">
                 SIRET : 91825411100027<br />
@@ -90,7 +90,7 @@ const MentionsLegales = () => {
               </h2>
               <p className="text-muted-foreground">
                 Pour toute question concernant ces mentions légales, vous pouvez nous 
-                contacter à l'adresse : ngclim06@gmail.com
+                contacter à l'adresse : ngc.paca@gmail.com
               </p>
             </section>
           </div>
